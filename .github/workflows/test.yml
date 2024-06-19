@@ -2,6 +2,8 @@ name: Reproduce Job Logs
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron:  '0 */1 * * *'
 
 jobs:
   reproduce-log:

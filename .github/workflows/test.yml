@@ -41,3 +41,12 @@ jobs:
       run: |
         pip install --upgrade pip
         pip install types-toml types-PyYAML tomli toml sqlparse scipy responses pytest-xdist pytest-socket pytest-env pytest-cov pytest pydot pluggy Pillow mock matplotlib kiwisolver iniconfig fonttools execnet exceptiongroup cycler coverage contourpy attrs
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        file: ./Dockerfile
+        platforms: linux/amd64,linux/arm64
+        push: true
+        tags: pykello/my-image:latest
